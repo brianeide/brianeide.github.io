@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pomodoro Timer</title>
+        <script src="index.js"></script>
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Pomodoro Timer</h1>
+            <p>The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks</p>
+            <p>In this timer, each work period is 25 minutes and each break period is 5 minutes. After 4 pomodoros (2 hours total), there is a longer break period lasting 30 minutes. You may adjust these values as needed.</p>
+        </div>
+        <br>
+        <div id="progress">
+            <svg width="300" height="22">
+                <rect x="39" y="8" width="240" height="4" fill="white" stroke="black"/>
+                <rect id="r0" x="39" y="8" width="0" height="4" style="fill: #73beff"/>
+                <rect id="r1" x="99" y="8" width="0" height="4" style="fill: #73beff"/>
+                <rect id="r2" x="159" y="8" width="0" height="4" style="fill: #73beff"/>
+                <rect id="r3" x="219" y="8" width="0" height="4" style="fill: #73beff"/>
+                <circle cx="30" cy="10" r="10" style="fill: #73beff"></circle>
+                <circle id="c0" cx="90" cy="10" r="10" style="fill: black"></circle>
+                <circle id="c1" cx="150" cy="10" r="10" style="fill: black"></circle>
+                <circle id="c2" cx="210" cy="10" r="10" style="fill: black"></circle>
+                <circle id="c3" cx="270" cy="10" r="10" style="fill: black"></circle>
+                <text x="26" y="15" stroke="white">0</text>
+                <text id="t0" x="86" y="15" stroke="white">1</text>
+                <text id="t1" x="146" y="15" stroke="white">2</text>
+                <text id="t2" x="206" y="15" stroke="white">3</text>
+                <text id="t3" x="265" y="15" stroke="white">4</text>
+            </svg>
+        </div>
+        <br>
+        <div id="timer-box">
+            <div id="timer">
+                <code id="display"></code>
+            </div>
+        </div>
+        <br>
+        <div id="controls">
+            <button id="start-pause" class="timer-control" onclick="toggleTimer();" title="Start"><i class="fas fa-play"></i></button>
+            <button id="reset" class="timer-control" onclick="reset();" title="Reset Period" disabled><i class="fas fa-stop"></i></button>
+            <button id="next" class="timer-control" onclick="next();" title="Continue" disabled><i class="fas fa-arrow-right"></i></button>
+            <button id="total-reset" class="timer-control" onclick="totalReset();" title="Total Reset"><i class="fas fa-undo-alt"></i></button>
+        </div>
+        <br><br>
+        <div id="options">
+            <div id="descriptions">
+                <a>Pomodoro Period:</a>
+                <br>
+                <a>Short Break Period:</a>
+                <br>
+                <a>Long Break Period:</a>
+            </div>
+            <div id="inputs">
+                <input id="pp1" type="text" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="min"/>
+                <input id="pp2" type="text" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="sec"/>
+                <button onclick="setPP();">Set</button>
+                <a class="current">Current: <a id="currentpp">25:00</a></a>
+                <br>
+                <input id="sbp1" type="text" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="min"/>
+                <input id="sbp2" type="text" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="sec"/>
+                <button onclick="setSBP();">Set</button>
+                <a class="current">Current: <a id="currentsbp">5:00</a></a>
+                <br>
+                <input id="lbp1" type="text" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="min"/>
+                <input id="lbp2" type="text" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="sec"/>
+                <button onclick="setLBP();">Set</button>
+                <a class="current">Current: <a id="currentlbp">30:00</a></a>
+            </div>
+        </div>
+        <div id="disclaimer">
+            <p>*Custom values are not saved. Values return to default upon reload.</p>
+        </div>
+    </body>
+</html>
