@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    font-family: 'Roboto';
+}
+
+#header {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+#progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+text {
+    cursor: default;
+}
+
+#timer-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+#timer code {
+    font-size: 50px;
+    padding: 50px;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#controls button {
+    padding: 5px;
+    margin: 0px 10px;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+}
+
+#options p {
+    display: inline-block;
+}
+
+#descriptions {
+    text-align: right;
+    padding: 0px 5px;
+}
+
+#descriptions a {
+    padding-bottom: 6px;
+    display: inline-block;
+}
+
+#inputs {
+    padding-left: 5px;
+    padding-right: 23.98px;
+}
+
+#inputs input {
+    width: 28px;
+    margin-bottom: 5px;
+}
+
+.current {
+    padding-left: 5px;
+}
+
+#disclaimer {
+    text-align: center;
+    font-size: 12px;
+    width: 70%;
+    margin: auto;
+}
+
+.break {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 100;
+    }
+    100% {
+        opacity: 0;
+    }
+}
